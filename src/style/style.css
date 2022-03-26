@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    background: #eaeaea;;
+    font-family: 'Roboto', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+a:visited { color:transparent }
+a:active { color:black }
+
+.container{
+    width: 90vw;
+    height: 100vh;
+    margin: auto;
+}
+
+.menuHolder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.menuItem{
+    width: 30%;
+    min-width: 350px;
+}
+.card{
+    width: 75%;
+    margin: 1.6em auto;
+    background: white;
+    height: 40vh;
+    min-height: 290px;
+    border-radius: 10%;
+    text-align: center;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    cursor: pointer;
+    position: relative;
+}
+.card > img{
+    height: 20vh;
+    width: 70%;
+    padding: 10px;
+    object-fit: cover;
+}
+
+.titleHolder{
+    width: 70%;
+    margin: 5px auto;
+    border: 1px solid #e3e3e3;
+    padding: 8px 0;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    font-weight: bold;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.ratingHolder{
+    width: 90%;
+    margin: 20px auto;
+    font-size: 1.1rem;
+}
+.cardButton{
+    padding: 0.4em;
+    width: 50%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,241,21,1) 0%, rgba(0,212,255,1) 100%);
+    border: transparent;
+    font-weight: bold;
+    position: absolute;
+    left: 24%;
+    bottom: -18px;
+}
+.categoryHolder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    text-align: center;
+    padding: 10px 0;
+    overflow: auto;
+}
+.categoryItem{
+    width: 30%;
+    min-width: 350px;
+}
+.categoryButton{
+    padding: 0.4em;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,241,21,1) 0%, rgba(0,212,255,1) 100%);
+    border: transparent;
+    font-weight: bold;
+    width: 75%;
+}
+.textUnderL{
+  text-decoration: underline;
+}
+.swipeMenu{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px)  {
+    .container{
+      width: 98vw;
+    }
+    .menuItem{
+        width: 100%;
+        min-width: 100%;
+    }
+    .card{
+        width: 90%;
+        height: 13vh;
+        min-height: 125px;
+        border-radius: 25px;
+    }
+    .card > img{
+        width: 30%;
+        height: 10vh;
+        float: left;
+    }
+    .titleHolder{
+        border: none;
+        box-shadow: none;
+        width: 30%;
+        padding: 20px 0 5px 0;
+        float: left;
+    }
+    .ratingHolder{
+        width: 30%;
+        text-align: right;
+        float: left;
+        margin: 20px auto 5px auto;
+    }
+    .cardButton{
+        position: absolute;
+        float: left;
+        width: 30%;
+        left: 36%;
+        bottom: 15%;
+    }
+    .price{
+        position: absolute;
+        bottom: 29px;
+        right: 11%;
+    }
+    .swipeMenu{
+      display: flex;
+      height: 60px;
+      position: relative;
+    }
+    .swipeItem{
+      flex: 1;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #swipeLeft{
+    position: absolute;
+      top: 0;
+      left: 0;
+      height: 75px;
+      width: 47%;
+      cursor: grab;
+      text-align: center;
+    }
+    #swipeRight{
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 75px;
+      width: 47%;
+      cursor: grab;
+      text-align: center;
+    }
+    .categoryHolder{
+      display: none;
+    }
+    .categoryItem {
+      width: 100%;
+      min-width: 220px;
+  }
+}
+
+
+/**
+ * ==============================================
+ * Dot Pulse - Loader
+ * ==============================================
+ */
+ .snippetRow {
+  position: relative;
+  padding: 10vh 48%;
+  border-radius: .25rem;
+}
+ .snippet {
+    position: relative;
+    padding: 50vh 48%;
+    border-radius: .25rem;
+  }
+ .dot-pulse {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9999px 0 0 -5px #9880ff;
+    animation: dotPulse 1.5s infinite linear;
+    animation-delay: .25s;
+  }
+  
+  .dot-pulse::before, .dot-pulse::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+  }
+  
+  .dot-pulse::before {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+    animation: dotPulseBefore 1.5s infinite linear;
+    animation-delay: 0s;
+  }
+  
+  .dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+    animation: dotPulseAfter 1.5s infinite linear;
+    animation-delay: .5s;
+  }
+  
+  @keyframes dotPulseBefore {
+    0% {
+      box-shadow: 9984px 0 0 -5px #9880ff;
+    }
+    30% {
+      box-shadow: 9984px 0 0 2px #9880ff;
+    }
+    60%,
+    100% {
+      box-shadow: 9984px 0 0 -5px #9880ff;
+    }
+  }
+  
+  @keyframes dotPulse {
+    0% {
+      box-shadow: 9999px 0 0 -5px #9880ff;
+    }
+    30% {
+      box-shadow: 9999px 0 0 2px #9880ff;
+    }
+    60%,
+    100% {
+      box-shadow: 9999px 0 0 -5px #9880ff;
+    }
+  }
+  
+  @keyframes dotPulseAfter {
+    0% {
+      box-shadow: 10014px 0 0 -5px #9880ff;
+    }
+    30% {
+      box-shadow: 10014px 0 0 2px #9880ff;
+    }
+    60%,
+    100% {
+      box-shadow: 10014px 0 0 -5px #9880ff;
+    }
+  }
+  /**
+ * ==============================================
+ * Dot Pulse - Loader end
+ * ==============================================
+ */
