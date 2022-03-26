@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Category from "./Category";
 
 let SwipeMenu = ({ categories, getDataForCategory, activeCategory }) => {
@@ -6,7 +6,7 @@ let SwipeMenu = ({ categories, getDataForCategory, activeCategory }) => {
     let [startFrom, setStartFrom] = useState();
     let [displayMenu, setDisplayMenu] = useState(categories.length > 1 ? [categories[0], categories[1]] : [categories[0]]);
 
-    let allCategories = displayMenu.map((cat, index) => {
+    let displayedCategories = displayMenu.map((cat, index) => {
         return (
             <div key={cat} onDragStart={(ev) => startDrag(ev, index === 0? 'left': 'right')} onDrop={(ev) => droped(ev, index === 0? 'left': 'right')} 
             onDragOver={(ev) => allowDrop(ev)} id={index === 0? "swipeLeft": "swipeRight"}>
@@ -17,10 +17,6 @@ let SwipeMenu = ({ categories, getDataForCategory, activeCategory }) => {
             </div>
         )
     })
-
-    useEffect(() => {
-
-    }, [displayMenu])
 
     let allowDrop = (ev) => {
         ev.preventDefault();
@@ -35,7 +31,6 @@ let SwipeMenu = ({ categories, getDataForCategory, activeCategory }) => {
     }
 
     let startDrag = (ev, position) => {
-        console.log('drag start ' + position);
         setStartFrom(position);
     }
 
@@ -57,7 +52,7 @@ let SwipeMenu = ({ categories, getDataForCategory, activeCategory }) => {
 
     return (
         <div className="swipeMenu">
-            {allCategories}
+            {displayedCategories}
         </div>
     )
 }

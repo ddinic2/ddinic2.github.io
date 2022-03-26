@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import '../src/style/style.css';
 import CardList from './components/CardList';
 import CategoriesHolder from './components/CategoriesHolder';
 import Loader from './components/Loader';
 import InfiniteScroll from 'react-infinite-scroller';
 import SwipeMenu from './components/SwipeMenu';
 
-
+import '../src/style/style.css';
 
 function App() {
 
@@ -38,7 +37,6 @@ function App() {
     if (!startLoading) {
       setStartLoading(true);
       setPage(page + 1);
-      console.log('offset ', (page + 1) * resultsPerLoading, activeCategory)
       fetch('https://api.yelp.com/v3/businesses/search?location=San Jose, CA 95127&amp;term=restaurants&categories=' + activeCategory + '&offset=' + (page + 1) * resultsPerLoading + '&limit=15', { headers: { Authorization: 'Bearer uNZtsuNHOndsfwiygeUMRY7G1SddTnKllAW9lnEhgxHz9dbAL6aLiFiwCeZ8MbFP98ihTgNdBqLYhbATz6Rw3NMY7dtURF3FeSZTfjiN4Gf-kCMCnDRuNGcDmlRPYHYx' } })
         .then(response => response.json())
         .then(res => {
